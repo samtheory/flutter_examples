@@ -19,20 +19,20 @@ environment:
 dependencies:
     flutter:
         sdk: flutter
-    cupertino_icons: ^1.0.2
-    flutter_hooks: ^0.18.0
-    hooks_riverpod: ^1.0.2
+    flutter_hooks: ^0.18.1
+    hooks_riverpod: ^1.0.3
     auto_route: ^3.2.0
+    # UI Package
     google_fonts: ^2.1.0
     animate_do: ^2.0.0
-    # UI Package
     liquid_swipe: ^2.1.1
+    cupertino_icons: ^1.0.4
 
 dev_dependencies:
     flutter_test:
         sdk: flutter
     auto_route_generator: ^3.2.0
-    build_runner: ^2.1.5
+    build_runner: ^2.1.7
 
     # The "flutter_lints" package below contains a set of recommended lints to
     # encourage good coding practices. The lint set provided by the package is

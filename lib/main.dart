@@ -1,21 +1,28 @@
+
 import 'package:flutter/material.dart';
-import 'package:flutter_examples/pages/liquid_swipe.dart';
+import 'package:flutter_examples/Router/router.dart';
+
+
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+  MyApp({Key? key}) : super(key: key);
+  final   _appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Examples',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const LiquidSwipePage());
+    return MaterialApp.router(
+      routerDelegate: _appRouter.delegate(),
+      
+      routeInformationParser: _appRouter.defaultRouteParser(),
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Examples',
+       builder: (context, router) => router!,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+    );
   }
 }
