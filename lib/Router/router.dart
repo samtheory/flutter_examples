@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_examples/pages/home.dart';
 import 'package:flutter_examples/pages/liquid_swipe.dart';
+import 'package:flutter_examples/pages/social_profile.dart';
 
 part 'router.gr.dart';
 
@@ -11,6 +12,7 @@ part 'router.gr.dart';
   routes: <AutoRoute>[
     AutoRoute(page: HomePage, initial: true),
     AutoRoute(page: LiquidSwipePage),
+    AutoRoute(page: SocialProfilePage),
   ],
 )
 class AppRouter extends _$AppRouter {}

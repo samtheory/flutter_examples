@@ -22,13 +22,18 @@ class _$AppRouter extends RootStackRouter {
     LiquidSwipeRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const LiquidSwipePage());
+    },
+    SocialProfileRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const SocialProfilePage());
     }
   };
 
   @override
   List<RouteConfig> get routes => [
         RouteConfig(HomeRoute.name, path: '/'),
-        RouteConfig(LiquidSwipeRoute.name, path: '/liquid-swipe-page')
+        RouteConfig(LiquidSwipeRoute.name, path: '/liquid-swipe-page'),
+        RouteConfig(SocialProfileRoute.name, path: '/social-profile-page')
       ];
 }
 
@@ -47,4 +52,13 @@ class LiquidSwipeRoute extends PageRouteInfo<void> {
       : super(LiquidSwipeRoute.name, path: '/liquid-swipe-page');
 
   static const String name = 'LiquidSwipeRoute';
+}
+
+/// generated route for
+/// [SocialProfilePage]
+class SocialProfileRoute extends PageRouteInfo<void> {
+  const SocialProfileRoute()
+      : super(SocialProfileRoute.name, path: '/social-profile-page');
+
+  static const String name = 'SocialProfileRoute';
 }
