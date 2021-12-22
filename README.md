@@ -1,16 +1,43 @@
-# flutter_examples
+# Flutter Examples
 
-A new Flutter project.
+Each page is a Flutter UI or Package Example.
 
-## Getting Started
+## Development Setup
 
-This project is a starting point for a Flutter application.
+Clone the repository and run the following commands:
 
-A few resources to get you started if this is your first Flutter project:
+```
+flutter pub get
+flutter run
+```
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Screenshots
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Social Profile
+<img style="max-width:500px" src="assets/images/screenshot/Sc_social-profile.png" />
+
+---
+
+### Carousel Slider
+<img style="max-width:500px" src="assets/images/screenshot/SC-carousel-slider.png" />
+
+---
+
+### Liquid Swipe Pages
+<img style="max-width:500px" src="assets/images/screenshot/SC_liquid_swip.png" />
+
+---
+
+### Loading Animation
+<img style="max-width:500px" src="assets/images/screenshot/SC_loading_animation.png" />
+
+---
+
+
+
+## Links
+
+<!--   [Website](https://afgprogrammer.com)-->
+-   <!--[Youtube channel](https://youtube.com/afgprogrammer)-->
+-   [Twitter](https://twitter.com/https://twitter.com/Sajjad_Theory)
+-   [Instagram](https://instagram.com/sajjad.theory)
