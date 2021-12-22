@@ -14,30 +14,30 @@ flutter run
 ## Screenshots
 
 ### Social Profile
-<img style="max-width:500px" src="assets/images/screenshot/Sc_social-profile.png" />
+<img style="width:500px" src="assets/images/screenshot/Sc_social-profile.png" />
 
 ---
 
 ### Carousel Slider
-<img style="max-width:500px" src="assets/images/screenshot/SC-carousel-slider.png" />
+<img style="width:500px" src="assets/images/screenshot/SC-carousel-slider.png" />
 
 ---
 
 ### Liquid Swipe Pages
-<img style="max-width:500px" src="assets/images/screenshot/SC_liquid_swip.png" />
+<img style="width:500px" src="assets/images/screenshot/SC_liquid_swip.png" />
 
 ---
 
 ### Loading Animation
-<img style="max-width:500px" src="assets/images/screenshot/SC_loading_animation.png" />
+<img style="width:500px" src="assets/images/screenshot/SC_loading_animation.png" />
 
----
+
 
 
 
 ## Links
 
 <!--   [Website](https://afgprogrammer.com)-->
--   <!--[Youtube channel](https://youtube.com/afgprogrammer)-->
+<!--[Youtube channel](https://youtube.com/afgprogrammer)-->
 -   [Twitter](https://twitter.com/https://twitter.com/Sajjad_Theory)
 -   [Instagram](https://instagram.com/sajjad.theory)
