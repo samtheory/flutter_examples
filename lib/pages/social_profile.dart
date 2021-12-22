@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_examples/data/data.dart';
@@ -15,13 +16,16 @@ class SocialProfilePage extends ConsumerWidget {
             children: [
               Column(
                 children: [
-                  ClipPath(
-                    clipper: _ClipPathHeader(),
-                    child: Image.asset(
-                      'assets/images/mountain.jpg',
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                      height: 160,
+                  FadeInDown(
+                    duration: const Duration(milliseconds: 650),
+                    child: ClipPath(
+                      clipper: _ClipPathHeader(),
+                      child: Image.asset(
+                        'assets/images/mountain.jpg',
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                        height: 160,
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -33,27 +37,33 @@ class SocialProfilePage extends ConsumerWidget {
                   bottom: 0,
                   left: 0,
                   right: 0,
-                  child: Center(
-                    child: Container(
-                      padding: const EdgeInsets.all(4),
-                      decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                            begin: Alignment.topRight,
-                            end: Alignment.bottomLeft,
-                            colors: [
-                              Colors.blue,
-                              Colors.red,
-                            ],
-                          ),
-                          borderRadius: BorderRadius.circular(50)),
+                  child: FadeInDown(
+                    from: 50,
+                    duration: const Duration(milliseconds: 500),
+                    delay: const Duration(milliseconds: 450),
+                    child: Center(
                       child: Container(
-                        padding: const EdgeInsets.all(6),
+                        padding: const EdgeInsets.all(4),
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            gradient: const LinearGradient(
+                              begin: Alignment.topRight,
+                              end: Alignment.bottomLeft,
+                              colors: [
+                                Colors.blue,
+                                Colors.red,
+                              ],
+                            ),
                             borderRadius: BorderRadius.circular(50)),
-                        child: const CircleAvatar(
-                          backgroundImage: AssetImage('assets/images/avt.jpg'),
-                          radius: 43,
+                        child: Container(
+                          padding: const EdgeInsets.all(6),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(50)),
+                          child: const CircleAvatar(
+                            backgroundImage:
+                                AssetImage('assets/images/avt.jpg'),
+                            radius: 43,
+                          ),
                         ),
                       ),
                     ),
@@ -63,43 +73,61 @@ class SocialProfilePage extends ConsumerWidget {
           const SizedBox(
             height: 10,
           ),
-          Center(
-              child: Text(
-            'Thomas Anderson',
-            style: GoogleFonts.audiowide(
-                fontWeight: FontWeight.bold, fontSize: 20),
-          )),
-          Center(
-              child: Text(
-            'Software Developer',
-            style: GoogleFonts.audiowide(fontSize: 13),
-          )),
+          FadeInDown(
+            delay: const Duration(milliseconds: 500),
+            duration: const Duration(milliseconds: 800),
+            from: 40,
+            child: Center(
+                child: Text(
+              'Thomas Anderson',
+              style: GoogleFonts.audiowide(
+                  fontWeight: FontWeight.bold, fontSize: 20),
+            )),
+          ),
+          FadeInDown(
+            delay: const Duration(milliseconds: 600),
+            duration: const Duration(milliseconds: 800),
+            from: 40,
+            child: Center(
+                child: Text(
+              'Software Developer',
+              style: GoogleFonts.audiowide(fontSize: 13),
+            )),
+          ),
           const SizedBox(
             height: 15,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.resolveWith(
-                          (states) => Colors.blue[900]),
-                      padding: MaterialStateProperty.resolveWith((states) =>
-                          const EdgeInsets.symmetric(horizontal: 30))),
-                  onPressed: () {},
-                  child: Text('Follow', style: GoogleFonts.audiowide())),
+              FadeInLeft(
+                delay: const Duration(milliseconds: 400),
+                duration: const Duration(milliseconds: 800),
+                child: ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.resolveWith(
+                            (states) => Colors.blue[900]),
+                        padding: MaterialStateProperty.resolveWith((states) =>
+                            const EdgeInsets.symmetric(horizontal: 30))),
+                    onPressed: () {},
+                    child: Text('Follow', style: GoogleFonts.audiowide())),
+              ),
               const SizedBox(
                 width: 10,
               ),
-              ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.resolveWith(
-                          (states) => Colors.white),
-                      padding: MaterialStateProperty.resolveWith((states) =>
-                          const EdgeInsets.symmetric(horizontal: 20))),
-                  onPressed: () {},
-                  child: Text('More',
-                      style: GoogleFonts.audiowide(color: Colors.black87))),
+              FadeInRight(
+                delay: const Duration(milliseconds: 400),
+                duration: const Duration(milliseconds: 800),
+                child: ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.resolveWith(
+                            (states) => Colors.white),
+                        padding: MaterialStateProperty.resolveWith((states) =>
+                            const EdgeInsets.symmetric(horizontal: 20))),
+                    onPressed: () {},
+                    child: Text('More',
+                        style: GoogleFonts.audiowide(color: Colors.black87))),
+              ),
             ],
           ),
           Column(
@@ -108,12 +136,16 @@ class SocialProfilePage extends ConsumerWidget {
               const SizedBox(
                 height: 10,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
-                child: Text(
-                  'Featured',
-                  style: GoogleFonts.fredokaOne(
-                    fontSize: 16,
+              SlideInLeft(
+                delay: const Duration(milliseconds: 650),
+                duration: const Duration(milliseconds: 800),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: Text(
+                    'Featured',
+                    style: GoogleFonts.fredokaOne(
+                      fontSize: 16,
+                    ),
                   ),
                 ),
               ),
@@ -128,122 +160,129 @@ class SocialProfilePage extends ConsumerWidget {
                   ),
                   ...List.generate(
                       DataSet.socialCardList.length,
-                      (index) => Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 10),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(12.0),
-                              child: Stack(
-                                children: [
-                                  Image.asset(
-                                    DataSet.socialCardList[index].image,
-                                    width: 160,
-                                    fit: BoxFit.cover,
-                                    height: 190,
-                                  ),
-                                  Positioned(
-                                      top: 0,
-                                      left: 0,
-                                      right: 0,
-                                      bottom: 0,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          gradient: LinearGradient(
-                                            begin: Alignment.bottomCenter,
-                                            end: Alignment.topCenter,
-                                            stops: const [
-                                              0.2,
-                                              0.6,
-                                            ],
-                                            colors: [
-                                              Colors.black.withOpacity(.8),
-                                              Colors.black.withOpacity(0),
-                                            ],
-                                          ),
-                                        ),
-                                      )),
-                                  Positioned(
-                                      bottom: 10,
-                                      left: 10,
-                                      right: 10,
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.stretch,
-                                        children: [
-                                          Text(
-                                            DataSet.socialCardList[index].title,
-                                            style: const TextStyle(
-                                                fontSize: 14,
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          const SizedBox(
-                                            height: 4,
-                                          ),
-                                          Text(
-                                            DataSet.socialCardList[index].desc,
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                            style: const TextStyle(
-                                                fontSize: 12,
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.w300),
-                                          ),
-                                        ],
-                                      )),
-                                  Positioned(
-                                      left: 10,
-                                      top: 10,
-                                      child: Container(
-                                        padding: const EdgeInsets.all(5),
-                                        decoration: BoxDecoration(
-                                          color: Colors.grey.withOpacity(.4),
-                                          borderRadius:
-                                              BorderRadius.circular(50),
-                                        ),
-                                        child: const Icon(
-                                          Icons.favorite_border,
-                                          color: Colors.white,
-                                          size: 20,
-                                        ),
-                                      )),
-                                  Positioned(
-                                      right: 0,
-                                      top: 0,
-                                      child: ClipPath(
-                                        clipper: _CommentClipper(),
+                      (index) => FadeInLeft(
+                            delay: Duration(milliseconds: 1000 + (index * 200)),
+                            duration: const Duration(milliseconds: 800),
+                            child: Container(
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(12.0),
+                                child: Stack(
+                                  children: [
+                                    Image.asset(
+                                      DataSet.socialCardList[index].image,
+                                      width: 160,
+                                      fit: BoxFit.cover,
+                                      height: 190,
+                                    ),
+                                    Positioned(
+                                        top: 0,
+                                        left: 0,
+                                        right: 0,
+                                        bottom: 0,
                                         child: Container(
-                                          padding: const EdgeInsets.only(
-                                              left: 17, top: 12),
-                                          height: 45,
-                                          width: 70,
-                                          color: Colors.black,
-                                          child: Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              const Icon(
-                                                Icons.chat_bubble_rounded,
-                                                size: 16,
-                                                color: Colors.white,
-                                              ),
-                                              const SizedBox(
-                                                width: 4,
-                                              ),
-                                              Text(
-                                                DataSet.socialCardList[index]
-                                                    .commentNum
-                                                    .toString(),
-                                                style: const TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 12,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              )
-                                            ],
+                                          decoration: BoxDecoration(
+                                            gradient: LinearGradient(
+                                              begin: Alignment.bottomCenter,
+                                              end: Alignment.topCenter,
+                                              stops: const [
+                                                0.2,
+                                                0.6,
+                                              ],
+                                              colors: [
+                                                Colors.black.withOpacity(.8),
+                                                Colors.black.withOpacity(0),
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                      ))
-                                ],
+                                        )),
+                                    Positioned(
+                                        bottom: 10,
+                                        left: 10,
+                                        right: 10,
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.stretch,
+                                          children: [
+                                            Text(
+                                              DataSet
+                                                  .socialCardList[index].title,
+                                              style: const TextStyle(
+                                                  fontSize: 14,
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            const SizedBox(
+                                              height: 4,
+                                            ),
+                                            Text(
+                                              DataSet
+                                                  .socialCardList[index].desc,
+                                              maxLines: 1,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: const TextStyle(
+                                                  fontSize: 12,
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.w300),
+                                            ),
+                                          ],
+                                        )),
+                                    Positioned(
+                                        left: 10,
+                                        top: 10,
+                                        child: Container(
+                                          padding: const EdgeInsets.all(5),
+                                          decoration: BoxDecoration(
+                                            color: Colors.grey.withOpacity(.4),
+                                            borderRadius:
+                                                BorderRadius.circular(50),
+                                          ),
+                                          child: const Icon(
+                                            Icons.favorite_border,
+                                            color: Colors.white,
+                                            size: 20,
+                                          ),
+                                        )),
+                                    Positioned(
+                                        right: 0,
+                                        top: 0,
+                                        child: ClipPath(
+                                          clipper: _CommentClipper(),
+                                          child: Container(
+                                            padding: const EdgeInsets.only(
+                                                left: 17, top: 12),
+                                            height: 45,
+                                            width: 70,
+                                            color: Colors.black,
+                                            child: Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                const Icon(
+                                                  Icons.chat_bubble_rounded,
+                                                  size: 16,
+                                                  color: Colors.white,
+                                                ),
+                                                const SizedBox(
+                                                  width: 4,
+                                                ),
+                                                Text(
+                                                  DataSet.socialCardList[index]
+                                                      .commentNum
+                                                      .toString(),
+                                                  style: const TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 12,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                        ))
+                                  ],
+                                ),
                               ),
                             ),
                           )),
@@ -254,12 +293,16 @@ class SocialProfilePage extends ConsumerWidget {
           const SizedBox(
             height: 10,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: Text(
-              'Experience',
-              style: GoogleFonts.fredokaOne(
-                fontSize: 16,
+          SlideInLeft(
+            delay: const Duration(milliseconds: 850),
+            // duration: const Duration(milliseconds: 800),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: Text(
+                'Experience',
+                style: GoogleFonts.fredokaOne(
+                  fontSize: 16,
+                ),
               ),
             ),
           ),
@@ -270,89 +313,99 @@ class SocialProfilePage extends ConsumerWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
-                Card(
-                  elevation: 6,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 14.0, horizontal: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(
-                              EvaIcons.facebook,
-                              color: Colors.blue[800],
-                            ),
-                            const SizedBox(
-                              width: 15,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Text(
-                                  'Facebook',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16),
-                                ),
-                                Text(
-                                  'Product Photography',
-                                  style: TextStyle(
-                                      fontSize: 13, color: Colors.grey),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        const Icon(
-                          EvaIcons.moreVerticalOutline,
-                          color: Colors.black87,
-                        )
-                      ],
+                FadeInUp(
+                     delay: const Duration(milliseconds: 200),
+                  duration: const Duration(milliseconds: 800),
+                
+                  child: Card(
+                    elevation: 6,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 14.0, horizontal: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(
+                                EvaIcons.facebook,
+                                color: Colors.blue[800],
+                              ),
+                              const SizedBox(
+                                width: 15,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: const [
+                                  Text(
+                                    'Facebook',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16),
+                                  ),
+                                  Text(
+                                    'Product Photography',
+                                    style: TextStyle(
+                                        fontSize: 13, color: Colors.grey),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          const Icon(
+                            EvaIcons.moreVerticalOutline,
+                            color: Colors.black87,
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
-                Card(
-                  elevation: 6,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 14.0, horizontal: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(
-                              EvaIcons.google,
-                              color: Colors.red[600],
-                            ),
-                            const SizedBox(
-                              width: 15,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Text(
-                                  'Google',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16),
-                                ),
-                                Text(
-                                  'Product Photography',
-                                  style: TextStyle(
-                                      fontSize: 13, color: Colors.grey),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        const Icon(
-                          EvaIcons.moreVerticalOutline,
-                          color: Colors.black87,
-                        )
-                      ],
+                FadeInUp(
+                     delay: const Duration(milliseconds: 400),
+                
+                
+                  child: Card(
+                    elevation: 6,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 14.0, horizontal: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(
+                                EvaIcons.google,
+                                color: Colors.red[600],
+                              ),
+                              const SizedBox(
+                                width: 15,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: const [
+                                  Text(
+                                    'Google',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16),
+                                  ),
+                                  Text(
+                                    'Product Photography',
+                                    style: TextStyle(
+                                        fontSize: 13, color: Colors.grey),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          const Icon(
+                            EvaIcons.moreVerticalOutline,
+                            color: Colors.black87,
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),

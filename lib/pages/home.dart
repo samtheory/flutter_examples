@@ -41,15 +41,20 @@ class HomePage extends ConsumerWidget {
   const HomePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(appBar: AppBar(backgroundColor: Colors.blueGrey[900], title: Text('Flutter Example'),),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blueGrey[900],
+        title:const Text('Flutter Example'),
+      ),
       body: SafeArea(
         child: ListView.builder(
             itemCount: pages.length,
             itemBuilder: (_, int i) {
               return GestureDetector(
-                onTap: () => context.pushRoute(pages[i].route),
+                onTap: () => context.navigateTo(pages[i].route),
                 child: Container(
-                  margin: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
                   height: 300,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
@@ -58,18 +63,20 @@ class HomePage extends ConsumerWidget {
                   child: Center(
                     child: Stack(
                       children: [
-                        ClipRRect(borderRadius: BorderRadius.circular(20),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
                           child: Stack(
                             fit: StackFit.expand,
                             children: [
-                             Image.asset(
+                              Image.asset(
                                 'assets/images/house-in-tree.jpg',
                                 fit: BoxFit.cover,
                               ),
                               ClipRRect(
                                 // Clip it cleanly.
                                 child: BackdropFilter(
-                                  filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+                                  filter:
+                                      ImageFilter.blur(sigmaX: 3, sigmaY: 3),
                                   child: Container(
                                     color: Colors.grey[900]!.withOpacity(0.4),
                                     alignment: Alignment.center,
@@ -79,7 +86,6 @@ class HomePage extends ConsumerWidget {
                             ],
                           ),
                         ),
-                       
                         Center(child: Image.asset(pages[i].image)),
                         Positioned(
                             bottom: 0,

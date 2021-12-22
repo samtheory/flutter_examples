@@ -13,8 +13,12 @@ part 'router.gr.dart';
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     AutoRoute(page: HomePage, initial: true),
-    AutoRoute(page: LiquidSwipePage),
-    AutoRoute(page: SocialProfilePage),
+    AutoRoute(
+      page: LiquidSwipePage,
+    ),
+    AutoRoute(
+      page: SocialProfilePage,
+    ),
     AutoRoute(page: CarouselSliderPage),
     AutoRoute(page: LoadingAnimationPage),
   ],
