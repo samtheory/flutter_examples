@@ -41,7 +41,7 @@ class HomePage extends ConsumerWidget {
   const HomePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
+    return Scaffold(appBar: AppBar(backgroundColor: Colors.blueGrey[900], title: Text('Flutter Example'),),
       body: SafeArea(
         child: ListView.builder(
             itemCount: pages.length,
