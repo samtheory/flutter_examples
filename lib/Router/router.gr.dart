@@ -26,6 +26,14 @@ class _$AppRouter extends RootStackRouter {
     SocialProfileRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const SocialProfilePage());
+    },
+    CarouselSliderRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const CarouselSliderPage());
+    },
+    LoadingAnimationRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const LoadingAnimationPage());
     }
   };
 
@@ -33,7 +41,9 @@ class _$AppRouter extends RootStackRouter {
   List<RouteConfig> get routes => [
         RouteConfig(HomeRoute.name, path: '/'),
         RouteConfig(LiquidSwipeRoute.name, path: '/liquid-swipe-page'),
-        RouteConfig(SocialProfileRoute.name, path: '/social-profile-page')
+        RouteConfig(SocialProfileRoute.name, path: '/social-profile-page'),
+        RouteConfig(CarouselSliderRoute.name, path: '/carousel-slider-page'),
+        RouteConfig(LoadingAnimationRoute.name, path: '/loading-animation-page')
       ];
 }
 
@@ -61,4 +71,22 @@ class SocialProfileRoute extends PageRouteInfo<void> {
       : super(SocialProfileRoute.name, path: '/social-profile-page');
 
   static const String name = 'SocialProfileRoute';
+}
+
+/// generated route for
+/// [CarouselSliderPage]
+class CarouselSliderRoute extends PageRouteInfo<void> {
+  const CarouselSliderRoute()
+      : super(CarouselSliderRoute.name, path: '/carousel-slider-page');
+
+  static const String name = 'CarouselSliderRoute';
+}
+
+/// generated route for
+/// [LoadingAnimationPage]
+class LoadingAnimationRoute extends PageRouteInfo<void> {
+  const LoadingAnimationRoute()
+      : super(LoadingAnimationRoute.name, path: '/loading-animation-page');
+
+  static const String name = 'LoadingAnimationRoute';
 }

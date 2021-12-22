@@ -16,8 +16,10 @@ class PageModel {
 }
 
 List<PageModel> pages = [
-  PageModel(name: 'Social Profile', image: '', route: SocialProfileRoute()),
-  PageModel(name: 'liquid swipe', image: '', route: LiquidSwipeRoute()),
+  PageModel(name: 'Social Profile', image: 'assets/images/screenshot/Sc_social-profile.png', route:const SocialProfileRoute()),
+  PageModel(name: 'carousel slider', image: 'assets/images/screenshot/SC-carousel-slider.png', route:const CarouselSliderRoute()),
+  PageModel(name: 'liquid swipe', image: 'assets/images/screenshot/SC_liquid_swip.png', route:const LiquidSwipeRoute()),
+  PageModel(name: 'Custom Loading Animation', image: 'assets/images/screenshot/SC_loading_animation.png', route:const LoadingAnimationRoute()),
 ];
 
 class HomePage extends ConsumerWidget {
