@@ -1,11 +1,14 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:auto_route/src/router/auto_router_x.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_examples/Router/router.dart';
 import 'package:flutter_examples/data/data.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class SocialProfilePage extends ConsumerWidget {
+
   const SocialProfilePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -124,7 +127,8 @@ class SocialProfilePage extends ConsumerWidget {
                             (states) => Colors.white),
                         padding: MaterialStateProperty.resolveWith((states) =>
                             const EdgeInsets.symmetric(horizontal: 20))),
-                    onPressed: () {},
+                    onPressed: () =>
+                        context.router.popAndPush(const SocialProfileRoute()),
                     child: Text('More',
                         style: GoogleFonts.audiowide(color: Colors.black87))),
               ),
@@ -314,9 +318,8 @@ class SocialProfilePage extends ConsumerWidget {
             child: Column(
               children: [
                 FadeInUp(
-                     delay: const Duration(milliseconds: 200),
+                  delay: const Duration(milliseconds: 200),
                   duration: const Duration(milliseconds: 800),
-                
                   child: Card(
                     elevation: 6,
                     child: Padding(
@@ -362,9 +365,7 @@ class SocialProfilePage extends ConsumerWidget {
                   ),
                 ),
                 FadeInUp(
-                     delay: const Duration(milliseconds: 400),
-                
-                
+                  delay: const Duration(milliseconds: 400),
                   child: Card(
                     elevation: 6,
                     child: Padding(

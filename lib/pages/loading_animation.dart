@@ -121,6 +121,9 @@ class _LoadingAnimationPageState extends State<LoadingAnimationPage>
 
   @override
   Widget build(BuildContext context) {
+ ////////////////////////////////////////////////////////////
+///      @Sajjad.theory on Instagram
+///////////////////////////////////////////////////////////
     return Scaffold(
       backgroundColor: const Color(0xff263238),
       body: Center(
@@ -139,8 +142,8 @@ class _LoadingAnimationPageState extends State<LoadingAnimationPage>
                   fifthAnimation.value,
                 ),
               ),
-            ),SizedBox(height: 25,),
-            Text(
+            ),const SizedBox(height: 25,),
+           const Text(
               'Custom Loading Animation...',
               style: TextStyle(color: Colors.white24),
             )

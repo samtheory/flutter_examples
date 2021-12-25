@@ -9,10 +9,8 @@ class LiquidSwipePage extends StatefulWidget {
 }
 
 class _LiquidSwipePageState extends State<LiquidSwipePage> {
-  // Photos from google
-////////////////////////////////////////////////////////////
-///      @Sajjad.theory on Instagram
-///////////////////////////////////////////////////////////
+
+
   @override
   Widget build(BuildContext context) {
   final pages = [
