@@ -121,9 +121,6 @@ class _LoadingAnimationPageState extends State<LoadingAnimationPage>
 
   @override
   Widget build(BuildContext context) {
- ////////////////////////////////////////////////////////////
-///      @Sajjad.theory on Instagram
-///////////////////////////////////////////////////////////
     return Scaffold(
       backgroundColor: const Color(0xff263238),
       body: Center(
