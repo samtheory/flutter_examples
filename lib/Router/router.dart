@@ -26,10 +26,11 @@ part 'router.gr.dart';
     CustomRoute(
         page: StreetBeerPage,
         transitionsBuilder: TransitionsBuilders.slideLeft,
-        maintainState: true),
+        ),
     CustomRoute(
         page: StreetBeerDetailPage,
-        transitionsBuilder: TransitionsBuilders.slideRight),
+        transitionsBuilder: TransitionsBuilders.slideLeftWithFade, 
+        durationInMilliseconds: 600 ),
   ],
 )
 class AppRouter extends _$AppRouter {}

@@ -47,8 +47,14 @@ class _$AppRouter extends RootStackRouter {
       final args = routeData.argsAs<StreetBeerDetailRouteArgs>();
       return CustomPage<dynamic>(
           routeData: routeData,
-          child: StreetBeerDetailPage(key: args.key, image: args.image),
-          transitionsBuilder: TransitionsBuilders.slideRight,
+          child: StreetBeerDetailPage(
+              key: args.key,
+              child: args.child,
+              heroImageTag: args.heroImageTag,
+              heroPriceTag: args.heroPriceTag,
+              heroTitleTag: args.heroTitleTag),
+          transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
+          durationInMilliseconds: 600,
           opaque: true,
           barrierDismissible: false);
     }
@@ -124,23 +130,44 @@ class StreetBeerRoute extends PageRouteInfo<void> {
 /// generated route for
 /// [StreetBeerDetailPage]
 class StreetBeerDetailRoute extends PageRouteInfo<StreetBeerDetailRouteArgs> {
-  StreetBeerDetailRoute({Key? key, required String image})
+  StreetBeerDetailRoute(
+      {Key? key,
+      required Beer child,
+      required Object heroImageTag,
+      required Object heroPriceTag,
+      required Object heroTitleTag})
       : super(StreetBeerDetailRoute.name,
             path: '/street-beer-detail-page',
-            args: StreetBeerDetailRouteArgs(key: key, image: image));
+            args: StreetBeerDetailRouteArgs(
+                key: key,
+                child: child,
+                heroImageTag: heroImageTag,
+                heroPriceTag: heroPriceTag,
+                heroTitleTag: heroTitleTag));
 
   static const String name = 'StreetBeerDetailRoute';
 }
 
 class StreetBeerDetailRouteArgs {
-  const StreetBeerDetailRouteArgs({this.key, required this.image});
+  const StreetBeerDetailRouteArgs(
+      {this.key,
+      required this.child,
+      required this.heroImageTag,
+      required this.heroPriceTag,
+      required this.heroTitleTag});
 
   final Key? key;
 
-  final String image;
+  final Beer child;
+
+  final Object heroImageTag;
+
+  final Object heroPriceTag;
+
+  final Object heroTitleTag;
 
   @override
   String toString() {
-    return 'StreetBeerDetailRouteArgs{key: $key, image: $image}';
+    return 'StreetBeerDetailRouteArgs{key: $key, child: $child, heroImageTag: $heroImageTag, heroPriceTag: $heroPriceTag, heroTitleTag: $heroTitleTag}';
   }
 }

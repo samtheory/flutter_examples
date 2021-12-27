@@ -1,6 +1,7 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_examples/Router/router.dart';
+import 'package:flutter_examples/pages/street_beer_detail.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:auto_route/auto_route.dart';
 
@@ -120,88 +121,116 @@ class StreetBeerPage extends StatelessWidget {
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: _beers.length,
-                    itemBuilder: (_, int index) => GestureDetector(
-                      onTap: () {
-                        context.router.push( StreetBeerDetailRoute(image: _beers[index].image));
-                      },
-                      child: Stack(
-                        children: [
-                          Column(
-                            children: [
-                              const SizedBox(
-                                height: 60,
-                              ),
-                              Container(
-                                margin:
-                                    const EdgeInsets.only(left: 10, right: 30),
-                                width: 220,
-                                height: 300,
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(15)),
-                              ),
-                            ],
-                          ),
-                          Positioned(
-                              left: 0,
-                              right: 0,
-                              child: Center(
-                                  child: Hero(tag: 'beer_image',transitionOnUserGestures: true,
-                                    child: Image.asset(
-                                _beers[index].image,
-                                height: 260,
-                              ),
-                                  ))),
-                          Positioned(
-                              bottom: 45,
-                              left: 35,
-                              right: 0,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(_beers[index].title,
-                                      style: GoogleFonts.poppins(
-                                          fontSize: 14,
-                                          color: Colors.grey[700])),
-                                  Text(
-                                    _beers[index].price,
-                                    style: GoogleFonts.frederickaTheGreat(
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              )),
-                          Positioned(
-                              bottom: 0,
-                              right: 40,
-                              child: GestureDetector(
-                                onTap: () {
-                                  print('Added To Card');
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 10, vertical: 5),
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(50),
-                                      color: Colors.cyan[400]),
-                                  child: Row(
-                                    children: [
-                                      const Icon(EvaIcons.plusCircleOutline),
-                                      const SizedBox(
-                                        width: 20,
-                                      ),
-                                      Text(
-                                        'Add to cart',
-                                        style: GoogleFonts.poppins(
-                                            fontWeight: FontWeight.bold),
-                                      )
-                                    ],
-                                  ),
+                    itemBuilder: (_, int index) {
+                      // (_beers[index].image) works as an ID
+                      Object heroImageTag = 'beer_image' + _beers[index].image;
+                      Object heroTitleTag = 'beer_title' + _beers[index].image;
+                      Object heroPriceTag = 'beer_price' + _beers[index].image;
+                      return GestureDetector(
+                        onTap: () {
+                          context.router.push(StreetBeerDetailRoute(
+                              child: Beer(
+                                  title: _beers[index].title,
+                                  price: _beers[index].price,
+                                  image: _beers[index].image),
+                              heroImageTag: heroImageTag,
+                              heroPriceTag: heroPriceTag,
+                              heroTitleTag: heroTitleTag));
+                        },
+                        child: Stack(
+                          children: [
+                            Column(
+                              children: [
+                                const SizedBox(
+                                  height: 60,
                                 ),
-                              ))
-                        ],
-                      ),
-                    ),
+                                Container(
+                                  margin: const EdgeInsets.only(
+                                      left: 10, right: 30),
+                                  width: 220,
+                                  height: 300,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(15)),
+                                ),
+                              ],
+                            ),
+                            Positioned(
+                                left: 0,
+                                right: 0,
+                                child: Hero(
+                                  tag: heroImageTag,
+                                  child: Image.asset(
+                                    _beers[index].image,
+                                    height: 260,
+                                  ),
+                                )),
+                            Positioned(
+                                bottom: 45,
+                                left: 35,
+                                right: 0,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Hero(
+                                      tag: heroTitleTag,
+                                      child: SizedBox(
+                                        width: 105,
+                                        height: 20,
+                                        child: Text(_beers[index].title,
+                                            style: GoogleFonts.poppins(
+                                                fontSize: 14,
+                                                color: Colors.grey[700])),
+                                      ),
+                                    ),
+                                    Hero(
+                                      tag: heroPriceTag,
+                                      child: SizedBox(
+                                        width: 105,
+                                        height: 25,
+                                        child: Text(
+                                          _beers[index].price,
+                                          style: GoogleFonts.frederickaTheGreat(
+                                              fontSize: 22,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                )),
+                            Positioned(
+                                bottom: 0,
+                                right: 40,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    print('Added To Card');
+                                  },
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 10, vertical: 5),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(50),
+                                        color: Colors.cyan[400]),
+                                    child: Row(
+                                      children: [
+                                        const Icon(EvaIcons.plusCircleOutline),
+                                        const SizedBox(
+                                          width: 20,
+                                        ),
+                                        Text(
+                                          'Add to cart',
+                                          style: GoogleFonts.poppins(
+                                              fontWeight: FontWeight.bold),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ))
+                          ],
+                        ),
+                      );
+                    },
                   ),
                 )
               ],
