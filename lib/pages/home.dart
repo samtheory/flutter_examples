@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_examples/Router/router.dart';
+import 'package:flutter_examples/pages/street_beer.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -19,6 +20,10 @@ class PageModel {
 }
 
 List<PageModel> pages = [
+  PageModel(
+      name: 'Street beer',
+      image: 'assets/images/cone_1.png',
+      route: const StreetBeerRoute()),
   PageModel(
       name: 'Social Profile',
       image: 'assets/images/screenshot/Sc_social-profile.png',

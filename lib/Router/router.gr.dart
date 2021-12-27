@@ -34,6 +34,23 @@ class _$AppRouter extends RootStackRouter {
     LoadingAnimationRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
           routeData: routeData, child: const LoadingAnimationPage());
+    },
+    StreetBeerRoute.name: (routeData) {
+      return CustomPage<dynamic>(
+          routeData: routeData,
+          child: const StreetBeerPage(),
+          transitionsBuilder: TransitionsBuilders.slideLeft,
+          opaque: true,
+          barrierDismissible: false);
+    },
+    StreetBeerDetailRoute.name: (routeData) {
+      final args = routeData.argsAs<StreetBeerDetailRouteArgs>();
+      return CustomPage<dynamic>(
+          routeData: routeData,
+          child: StreetBeerDetailPage(key: args.key, image: args.image),
+          transitionsBuilder: TransitionsBuilders.slideRight,
+          opaque: true,
+          barrierDismissible: false);
     }
   };
 
@@ -43,7 +60,11 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(LiquidSwipeRoute.name, path: '/liquid-swipe-page'),
         RouteConfig(SocialProfileRoute.name, path: '/social-profile-page'),
         RouteConfig(CarouselSliderRoute.name, path: '/carousel-slider-page'),
-        RouteConfig(LoadingAnimationRoute.name, path: '/loading-animation-page')
+        RouteConfig(LoadingAnimationRoute.name,
+            path: '/loading-animation-page'),
+        RouteConfig(StreetBeerRoute.name, path: '/street-beer-page'),
+        RouteConfig(StreetBeerDetailRoute.name,
+            path: '/street-beer-detail-page')
       ];
 }
 
@@ -89,4 +110,37 @@ class LoadingAnimationRoute extends PageRouteInfo<void> {
       : super(LoadingAnimationRoute.name, path: '/loading-animation-page');
 
   static const String name = 'LoadingAnimationRoute';
+}
+
+/// generated route for
+/// [StreetBeerPage]
+class StreetBeerRoute extends PageRouteInfo<void> {
+  const StreetBeerRoute()
+      : super(StreetBeerRoute.name, path: '/street-beer-page');
+
+  static const String name = 'StreetBeerRoute';
+}
+
+/// generated route for
+/// [StreetBeerDetailPage]
+class StreetBeerDetailRoute extends PageRouteInfo<StreetBeerDetailRouteArgs> {
+  StreetBeerDetailRoute({Key? key, required String image})
+      : super(StreetBeerDetailRoute.name,
+            path: '/street-beer-detail-page',
+            args: StreetBeerDetailRouteArgs(key: key, image: image));
+
+  static const String name = 'StreetBeerDetailRoute';
+}
+
+class StreetBeerDetailRouteArgs {
+  const StreetBeerDetailRouteArgs({this.key, required this.image});
+
+  final Key? key;
+
+  final String image;
+
+  @override
+  String toString() {
+    return 'StreetBeerDetailRouteArgs{key: $key, image: $image}';
+  }
 }

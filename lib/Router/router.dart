@@ -6,6 +6,8 @@ import 'package:flutter_examples/pages/home.dart';
 import 'package:flutter_examples/pages/liquid_swipe.dart';
 import 'package:flutter_examples/pages/loading_animation.dart';
 import 'package:flutter_examples/pages/social_profile.dart';
+import 'package:flutter_examples/pages/street_beer.dart';
+import 'package:flutter_examples/pages/street_beer_detail.dart';
 
 part 'router.gr.dart';
 
@@ -21,6 +23,13 @@ part 'router.gr.dart';
     ),
     AutoRoute(page: CarouselSliderPage),
     AutoRoute(page: LoadingAnimationPage),
+    CustomRoute(
+        page: StreetBeerPage,
+        transitionsBuilder: TransitionsBuilders.slideLeft,
+        maintainState: true),
+    CustomRoute(
+        page: StreetBeerDetailPage,
+        transitionsBuilder: TransitionsBuilders.slideRight),
   ],
 )
 class AppRouter extends _$AppRouter {}
